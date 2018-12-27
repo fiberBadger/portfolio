@@ -1,0 +1,35 @@
+list1 = ['Harry', 'Jarry', 'Carry', 'Bob'];
+list2 = [136, 392, 255, 879, 2193];
+tuple1 = ('Raven','Jack','Barney','Raz');
+print(list1);
+print('The length of the list is '+ str(len(list1)));
+print('The first item of the list is '+ list1[1]);
+print('The last item of the list is '+ list1[-1]);
+print('Bob gets left out :( '+ str(list1[:4]));
+list1.append('Jacob');
+print('Jacob has joined the group! ' + str(list1));
+list1.extend(['Zombie 1', 'Zombie 2', 'Zombie 3', 'Zombie 4' ,'Zombie 5']);
+print('The town has been overrun with zombies!' + str(list1));
+list1.remove('Jarry');
+print('Jarry was eaten! ' + str(list1));
+list1.pop();
+print('The town killed a zombie! ' + str(list1));
+list1.reverse();
+print('The roster has been reversed ' + str(list1));
+print('Carry is now in index : '+str(list1.index('Carry')));
+list1.sort();
+print('List two is a list of numbers ' + str(list2));
+print('List two sorted from least to greatest ' + str(list2.sort()));
+print('List two sorted from greatest to least ' + str(list2.sort(reverse=True)));
+print('List two\'s smallest number is ' + str(min(list2)));
+print('List two\'s greatest number is ' + str(max(list2)));
+print('The sum of all of List two\'s numbers is ' + str(sum(list2)));
+for index in list2:
+    print(index);
+for index, num in enumerate(list2, start=1):
+    print(str(index), str(num));
+print('A joined list');
+print(', '.join(list1));
+print('A str turned into a list!');
+print(str(', '.join(list1).split()));
+print('Tuples are list lists but unmutable this is a tuple' + str(tuple1));

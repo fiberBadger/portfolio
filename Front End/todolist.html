@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>WORK-TO-DOS</title>
+    <style>
+        html{
+            text-align:center;
+            font-family:'Times New Roman', Times, serif;
+            font-size:16px;
+        }
+
+        h1{
+            font-size:larger;
+            border-bottom:5px solid firebrick;
+            border-radius:10px;
+        }
+
+        button{
+           font-style:italic;
+           border-radius: 50%;
+           background:none;
+           display:inline;
+        }
+
+        li{
+            width:50%;
+            display:block;
+        }
+        .container {
+            width:60%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>WORK TO-DOS</h1>
+        <p>Enter text into the item box then press ADD to add items to your list. (max is 30 characters)</p>
+        <p>Click the item to mark it as complete</p>
+        <p>Click the 'X' to remove the item from your list</p>
+    </header>
+    <main>
+        <form>
+            <input id="input" type="text" placeholder="New item..." max="30" required/>
+            <button  id="add" type="button">Add</button>
+        </form>
+        <div class="container">
+            <ul id="list"></ul>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script>
+        function addItem() {
+            const input = document.getElementById('input').value;
+            const LI = document.createElement('li');
+            const BTN = document.createElement('button');
+            const text = document.createTextNode(input);
+            const list = document.getElementById('list');
+            BTN.className = 'del';
+            BTN.style.backgroundColor = 'maroon';
+            BTN.style.marginLeft = '5px';
+            LI.style.marginBottom = '10px';
+            LI.appendChild(text);
+            LI.appendChild(BTN).innerHTML = 'X';
+            list.appendChild(LI);
+        }
+
+
+        document.getElementById('add').addEventListener('click', function () {
+            if (input.value == '') {
+                alert('Input Needed!');
+            }
+            else {
+                addItem();
+            }
+        });
+
+        document.getElementById('list').addEventListener('click', function (event) {
+            if (event.target.className == 'del') {
+                list.removeChild(event.target.parentNode);
+            }
+        });
+
+    </script>
+</body>
+</html>
