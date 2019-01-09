@@ -1,0 +1,73 @@
+body{
+    margin: 0;
+    padding:0;
+    width:100%;
+    height:100vh;
+    background: url(../imgs/background.svg) 50% 50% no-repeat;
+    background-size: cover;
+    display: table;
+}
+
+.container{
+    margin-top:220px;
+}
+
+h1{
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+    font-size: 500%;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+p{
+    color: white;
+    font-weight:lighter;
+    letter-spacing: 15px;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+hr{
+    color: white;
+}
+ul{
+    list-style: none;
+    text-align: center;
+}
+
+li a{
+    text-decoration: none;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: lighter;
+    font-size: 25px;
+    padding: 0 20px;
+}
+.link::after{
+    content: '';
+    display:block;
+    width: 0;
+    height: 2px;
+    background: #5dff12;
+    transition: width .3s;
+}
+.link:hover::after{
+    width:100%;
+    transition: width .5s;
+}
+@media(max-width: 768px){
+    h1{
+        font-size: 300%;
+    }
+
+    p{
+        font-size: 14px;
+        letter-spacing: 10px;
+    }
+    a{
+        font-size:100%;
+    }
+}

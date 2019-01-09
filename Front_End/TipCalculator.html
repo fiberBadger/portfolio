@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name='description' content='This is a tip calculator.'>
+    <title>Tip calculator</title>
+    <style>
+        html{
+           font-family: 'Times New Roman', Times, serif;
+           font-size: 16px;
+           background-color: grey;
+           color:white;
+           padding: 15px 15px;
+        }
+        h1{
+            background-color:black;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 1.5em;
+            opacity:0.5;
+            font-style:normal;
+            border-bottom:5px solid firebrick;
+        }
+        .container{
+            background-color: slategrey;
+            display:inline-block;
+            margin-left:50%;
+            margin-right:50%;
+        }
+        .form-group{
+            display:block;
+            margin: 45px 45px;
+        }
+
+        #output{
+            text-align:center;
+            background-color:darkgray;
+            font-size:2em;
+            border-bottom:5px firebrick dashed;
+        }
+        #calculate{
+            text-align:center;
+            background-color:dimgrey;
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+
+        </div>
+    </header>
+
+    <main>
+        <div class="container show">
+            <h1>TIP CALCULATOR</h1>
+            <div id="Form" class="display">
+                <h3 id="output">0.00</h3>
+                <form>
+                    <div class="form-group">
+                        <p>How much was your bill?</p>
+                        <label for="billAmount">$</label>
+                        <input type="text" id="billAmount" required placeholder="Bill Amount" />
+                    </div>
+                    <div class="form-group">
+                        <p>How was your Service?</p>
+                        <select id="quality" required>
+                            <option value="0.0">poor</option>
+                            <option value="0.05">fair</option>
+                            <option value="0.1">Good</option>
+                            <option value="0.3">fantastic</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <p>Is anyone sharing the bill?</p>
+                        <label for="sharingBill">people</label>
+                        <input id="sharingBill" min="1" value="1" type="number" />
+                    </div>
+                    <button id="calculate" type="button">Calculate!</button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+    <script>
+        function calculate() {
+            const total = document.getElementById('billAmount').value;
+            const sQual = document.getElementById('quality').value;
+            let people = document.getElementById('sharingBill').value;
+            let tip;
+
+            tip = (total * sQual) / people;
+
+            tip = Math.round(tip * 100) / 100;
+            tip = tip.toFixed(2);
+
+            document.getElementById('output').innerHTML = tip;
+        }
+
+        document.getElementById('calculate').addEventListener('click', function () {
+            calculate();
+        });
+    </script>
+</body>
+</html>
